@@ -194,9 +194,9 @@ public class loginInterface extends javax.swing.JFrame {
 
     private void btn_loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_loginActionPerformed
         // TODO add your handling code here:
-        BreaksInterface bi = new BreaksInterface();
+        AttendenceInt ai = new AttendenceInt();
         this.setVisible(false);
-        bi.setVisible(true);
+        ai.setVisible(true);
 
     }//GEN-LAST:event_btn_loginActionPerformed
 
