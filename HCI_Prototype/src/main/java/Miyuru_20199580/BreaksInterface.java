@@ -4,7 +4,11 @@
  * and open the template in the editor.
  */
 package Miyuru_20199580;
-
+import java.sql.Connection;
+import java.sql.Statement;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
 /**
  *
  * @author miyuru_cg
@@ -45,6 +49,20 @@ public class BreaksInterface extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jSeparator8 = new javax.swing.JSeparator();
         jLabel2 = new javax.swing.JLabel();
+        jPanel3 = new javax.swing.JPanel();
+        JLabel_e = new javax.swing.JLabel();
+        eName = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        txt_Note = new javax.swing.JTextArea();
+        jSeparator9 = new javax.swing.JSeparator();
+        jSeparator10 = new javax.swing.JSeparator();
+        deleteBtn3 = new javax.swing.JButton();
+        editBtn = new javax.swing.JButton();
+        newBtn = new javax.swing.JButton();
+        addBtn = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        note_Table = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(28, 35, 51));
@@ -215,6 +233,160 @@ public class BreaksInterface extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Breaks");
 
+        jPanel3.setBackground(new java.awt.Color(28, 35, 51));
+        jPanel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 2));
+
+        JLabel_e.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
+        JLabel_e.setForeground(new java.awt.Color(255, 255, 255));
+        JLabel_e.setText("Employee");
+
+        eName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                eNameActionPerformed(evt);
+            }
+        });
+
+        jLabel3.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("Note");
+
+        txt_Note.setColumns(20);
+        txt_Note.setRows(5);
+        jScrollPane1.setViewportView(txt_Note);
+
+        deleteBtn3.setBackground(new java.awt.Color(102, 102, 255));
+        deleteBtn3.setFont(new java.awt.Font("Lucida Grande", 1, 16)); // NOI18N
+        deleteBtn3.setText("Delete");
+        deleteBtn3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                deleteBtn3MouseClicked(evt);
+            }
+        });
+        deleteBtn3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deleteBtn3ActionPerformed(evt);
+            }
+        });
+
+        editBtn.setBackground(new java.awt.Color(102, 102, 255));
+        editBtn.setFont(new java.awt.Font("Lucida Grande", 1, 16)); // NOI18N
+        editBtn.setText("Edit");
+        editBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                editBtnMouseClicked(evt);
+            }
+        });
+        editBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                editBtnActionPerformed(evt);
+            }
+        });
+
+        newBtn.setBackground(new java.awt.Color(102, 102, 255));
+        newBtn.setFont(new java.awt.Font("Lucida Grande", 1, 16)); // NOI18N
+        newBtn.setText("New");
+        newBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                newBtnMouseClicked(evt);
+            }
+        });
+        newBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                newBtnActionPerformed(evt);
+            }
+        });
+
+        addBtn.setBackground(new java.awt.Color(102, 102, 255));
+        addBtn.setFont(new java.awt.Font("Lucida Grande", 1, 16)); // NOI18N
+        addBtn.setText("Add");
+        addBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                addBtnMouseClicked(evt);
+            }
+        });
+        addBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addBtnActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(25, 25, 25)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(deleteBtn3, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(editBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(newBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(addBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jSeparator9, javax.swing.GroupLayout.PREFERRED_SIZE, 504, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(59, 59, 59)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 323, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(JLabel_e, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(eName, javax.swing.GroupLayout.PREFERRED_SIZE, 323, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jSeparator10, javax.swing.GroupLayout.PREFERRED_SIZE, 504, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(21, Short.MAX_VALUE))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(36, 36, 36)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(eName, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(JLabel_e, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(jSeparator9, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(jSeparator10, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(44, 44, 44)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(deleteBtn3, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(editBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(newBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(addBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(58, Short.MAX_VALUE))
+        );
+
+        note_Table.setBackground(new java.awt.Color(28, 35, 51));
+        note_Table.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
+        note_Table.setForeground(new java.awt.Color(255, 255, 255));
+        note_Table.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Employee", "Note"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        note_Table.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                note_TableMouseClicked(evt);
+            }
+        });
+        jScrollPane2.setViewportView(note_Table);
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -222,9 +394,13 @@ public class BreaksInterface extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(49, 49, 49)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(33, 33, 33)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 421, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabel2)
                     .addComponent(jSeparator8, javax.swing.GroupLayout.PREFERRED_SIZE, 858, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(93, Short.MAX_VALUE))
+                .addContainerGap(195, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -233,6 +409,10 @@ public class BreaksInterface extends javax.swing.JFrame {
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator8, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(27, 27, 27)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 503, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -321,6 +501,94 @@ public class BreaksInterface extends javax.swing.JFrame {
        
     }//GEN-LAST:event_btn_attendanceMouseClicked
 
+    private void eNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eNameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_eNameActionPerformed
+
+    private void deleteBtn3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deleteBtn3MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_deleteBtn3MouseClicked
+
+    private void deleteBtn3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteBtn3ActionPerformed
+        DefaultTableModel model = (DefaultTableModel)note_Table.getModel();
+
+        if (note_Table.getSelectedRow() == -1) {
+            if(note_Table.getRowCount()== 0){
+                JOptionPane.showMessageDialog(this, "Table is empty !");
+            }else{
+                JOptionPane.showMessageDialog(this, "Please select a row!");
+            }
+        }
+        else{
+            model.removeRow(note_Table.getSelectedRow());
+            //            model.setValueAt(null, note_Table.getSelectedRow(), 0);
+            //            model.setValueAt(null, note_Table.getSelectedRow(), 1);
+        }
+    }//GEN-LAST:event_deleteBtn3ActionPerformed
+
+    private void editBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_editBtnMouseClicked
+        DefaultTableModel model = (DefaultTableModel)note_Table.getModel();
+
+        if(note_Table.getSelectedRow()== -1){
+            if(note_Table.getRowCount()== 0){
+                JOptionPane.showMessageDialog(this, "Table is empty !");
+            }else{
+                JOptionPane.showMessageDialog(this, "Please select a row !");
+            }
+        }else{
+            model.setValueAt(eName.getText(), note_Table.getSelectedRow(), 0);
+            model.setValueAt(txt_Note.getText(), note_Table.getSelectedRow(), 1);
+            JOptionPane.showMessageDialog(this, "Data Edited Successfully !");
+        }
+    }//GEN-LAST:event_editBtnMouseClicked
+
+    private void editBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editBtnActionPerformed
+        //               DefaultTableModel model = (DefaultTableModel)note_Table.getModel();
+        //
+        //        if (note_Table.getSelectedRow() == -1) {
+            //            if(note_Table.getRowCount()== 0){
+                //              JOptionPane.showMessageDialog(this, "Table is empty !");
+                //          }else{
+                //              JOptionPane.showMessageDialog(this, "Please select a row!");
+                //          }
+            //        }
+        //        else{
+            //            model.removeRow(note_Table.getSelectedRow());
+            ////            model.setValueAt(null, note_Table.getSelectedRow(), 0);
+            ////            model.setValueAt(null, note_Table.getSelectedRow(), 1);
+            //        }
+    }//GEN-LAST:event_editBtnActionPerformed
+
+    private void newBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_newBtnMouseClicked
+        // TODO add your handling code here:
+        eName.setText(null);
+        txt_Note.setText(null);
+    }//GEN-LAST:event_newBtnMouseClicked
+
+    private void newBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newBtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_newBtnActionPerformed
+
+    private void addBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addBtnMouseClicked
+        // TODO add your handling code here:
+        String emp_name = eName.getText();
+        String note = txt_Note.getText();
+
+
+        DefaultTableModel model = (DefaultTableModel)note_Table.getModel();
+
+        model.addRow(new Object[]{eName.getText(),txt_Note.getText()});
+    }//GEN-LAST:event_addBtnMouseClicked
+
+    private void addBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addBtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_addBtnActionPerformed
+
+    private void note_TableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_note_TableMouseClicked
+        // TODO add your handling code here:
+        //jTable.getRow
+    }//GEN-LAST:event_note_TableMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -357,17 +625,27 @@ public class BreaksInterface extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel JLabel_e;
+    private javax.swing.JButton addBtn;
     private javax.swing.JLabel btn_Maintenance;
     private javax.swing.JLabel btn_Users;
     private javax.swing.JLabel btn_attendance;
     private javax.swing.JLabel btn_inventory;
     private javax.swing.JLabel btn_logout;
     private javax.swing.JLabel btn_salse;
+    private javax.swing.JButton deleteBtn3;
+    private javax.swing.JTextField eName;
+    private javax.swing.JButton editBtn;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jSeparator10;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
@@ -375,5 +653,9 @@ public class BreaksInterface extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator6;
     private javax.swing.JSeparator jSeparator7;
     private javax.swing.JSeparator jSeparator8;
+    private javax.swing.JSeparator jSeparator9;
+    private javax.swing.JButton newBtn;
+    private javax.swing.JTable note_Table;
+    private javax.swing.JTextArea txt_Note;
     // End of variables declaration//GEN-END:variables
 }
